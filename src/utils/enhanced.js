@@ -11,11 +11,11 @@ export const enhancedImageAPI = async (file) => {
         console.log("task id is", taskId)
 
         // fetch image
-        const enhanceImgData = await fetchEnhancedImage(taskId)
+        const enhanceImgData = await PoolForEnhancedImg(taskId)
         console.log("Enhanced Image Data", enhanceImgData)
         
-        console.log(enhanceImgData)
-        // return enhanceImgData
+        // console.log(enhanceImgData)
+        return enhanceImgData
     } catch (error) {
         console.log("Error Enhncing Image" , error.message)
     }
@@ -49,9 +49,25 @@ const fetchEnhancedImage = async (taskId) => {
     })
     console.log(data)
     if (!data?.data?.image){
-        throw new Error("fetch error" , data?.message)
+        throw new Error(`fetch error: ${data?.message || 'No image found'}`)
     }
     return data.data
+}
+
+const PoolForEnhancedImg = async (taskId, retries = 0) => {
+    const result = await fetchEnhancedImage(taskId)
+
+    if (result.state === 4){
+        console.log("processing...")
+
+        if (retries >= 20){
+            throw new Error ("Max retries reached. Please check your internet connection")
+        }
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+    
+        return PoolForEnhancedImg(taskId, retries + 1)
+    }
+    return result
 }
 
 
