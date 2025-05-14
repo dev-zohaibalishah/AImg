@@ -5,10 +5,14 @@
 ## Features
 
 * **AI Image Enhancement** – Improve clarity and overall quality using advanced AI models.
-* **Background Removal** – Remove backgrounds with precision in one click.
-* **Image Upscaling** – Enlarge images without losing quality.
 * **User-Friendly Interface** – Drag-and-drop upload with real-time feedback.
 * **API-Powered Processing** – Utilizes Pickwish API for reliable enhancement tasks.
+
+## Future Goals
+
+* **Background Removal** – Remove backgrounds with precision in one click.
+* **Image Upscaling** – Enlarge images without losing quality.
+* **Background Generation** – Generate a background of any image.
 
 ## Getting Started
 
@@ -32,10 +36,10 @@
    npm install
    ```
 
-3. Create a `.env` file in the root directory and add your Pickwish API key:
+3. Replace the api key in the utils/enhanced.js file:
 
    ```bash
-   VITE_PICKWISH_API_KEY=your_pickwish_api_key
+   API_KEY=your_pickwish_api_key
    ```
 
 4. Run the development server:
@@ -48,18 +52,13 @@
 
 1. Open the application in your browser.
 2. Upload an image using drag-and-drop or the file picker.
-3. Select an enhancement option:
-
-   * Background Removal
-   * Image Enhancement
-   * Image Upscaling
-4. Click “Enhance” to process the image using the Pickwish API.
-5. Download the enhanced result once processing is complete.
+3. The image boxes will show the original image uploaded and the enhanced image using the Pickwish API.
+4. Download the enhanced result once processing is complete.
 
 ## Technologies Used
 
-* React.js / Vite *(or your actual frontend stack)*
-* Tailwind CSS *(or your actual styling method)*
+* React.js / Vite 
+* Tailwind CSS 
 * Pickwish API
 
 ## Folder Structure
@@ -70,22 +69,19 @@ aimg/
 ├── src/
 │   ├── components/
 │   ├── utils/
-│   ├── App.jsx
-│   └── main.jsx
-├── .env
+│   └── App.jsx
 ├── package.json
 └── README.md
 ```
 
 ## API Reference
 
-**Base URL**: `https://api.pickwish.com/v1`
+**Base URL**: `https://api.pickwish.com/`
 
 Common endpoints used:
 
-* `POST /remove-background`
+* `GET /enhance-image`
 * `POST /enhance-image`
-* `POST /upscale-image`
 
 Refer to the [official Pickwish API documentation](https://www.pickwish.com/api) for detailed usage and parameters.
 
