@@ -2,6 +2,9 @@
 
 **AImg** is a web-based application that provides fast and intelligent image enhancement using the [Pickwish API](https://www.pickwish.com/api). Users can enhance image quality, remove backgrounds, and upscale resolution seamlessly through an intuitive user interface.
 
+## Preview Link
+```https://aimg-sepia.vercel.app/```
+
 ## Features
 
 * **AI Image Enhancement** – Improve clarity and overall quality using advanced AI models.
