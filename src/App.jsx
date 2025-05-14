@@ -12,6 +12,8 @@ const App = () => {
         </div>
 
         <Home/>
+
+        
         {/* Footer */}
         <div className='text-sm text-gray-400 mt-4'>
           Uplaod your Image and let AI enhance it in seconds!
